@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 pragma solidity >=0.8.13 <0.9.0;
 
+/// @notice Memory-preserving console logging helpers for tests and scripts.
+/// @dev Compatible development tools handle these calls; they do not emit Solidity events.
+/// `bytes32` arguments are strings ending at the first zero byte, or using all 32 bytes if none is zero.
+/// A first string argument in a multi-argument call supports console format specifiers; unused arguments are appended.
 /// @author philogy <https://github.com/philogy>
 /// @dev Code generated automatically by script.
 library safeconsole {
@@ -38,6 +42,9 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a memory slice as bytes to the console.
+    /// @param offset Starting byte offset of the memory slice.
+    /// @param length Number of bytes in the memory slice.
     function logMemory(uint256 offset, uint256 length) internal pure {
         if (offset >= 0x60) {
             // Sufficient memory before slice to prepare call header.
@@ -87,6 +94,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address to the console.
     function log(address p0) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -104,6 +112,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean to the console.
     function log(bool p0) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -121,6 +130,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer to the console.
     function log(uint256 p0) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -138,6 +148,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string to the console.
     function log(bytes32 p0) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -169,6 +180,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address and an address to the console.
     function log(address p0, address p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -190,6 +202,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address and a boolean to the console.
     function log(address p0, bool p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -211,6 +224,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address and an unsigned integer to the console.
     function log(address p0, uint256 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -232,6 +246,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address and a zero-terminated bytes32 string to the console.
     function log(address p0, bytes32 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -267,6 +282,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean and an address to the console.
     function log(bool p0, address p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -288,6 +304,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean and a boolean to the console.
     function log(bool p0, bool p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -309,6 +326,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean and an unsigned integer to the console.
     function log(bool p0, uint256 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -330,6 +348,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean and a zero-terminated bytes32 string to the console.
     function log(bool p0, bytes32 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -365,6 +384,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer and an address to the console.
     function log(uint256 p0, address p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -386,6 +406,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer and a boolean to the console.
     function log(uint256 p0, bool p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -407,6 +428,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer and an unsigned integer to the console.
     function log(uint256 p0, uint256 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -428,6 +450,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, bytes32 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -463,6 +486,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string and an address to the console.
     function log(bytes32 p0, address p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -498,6 +522,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string and a boolean to the console.
     function log(bytes32 p0, bool p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -533,6 +558,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string and an unsigned integer to the console.
     function log(bytes32 p0, uint256 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -568,6 +594,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string and a zero-terminated bytes32 string to the console.
     function log(bytes32 p0, bytes32 p1) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -610,6 +637,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, and an address to the console.
     function log(address p0, address p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -635,6 +663,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, and a boolean to the console.
     function log(address p0, address p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -660,6 +689,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, and an unsigned integer to the console.
     function log(address p0, address p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -685,6 +715,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, and a zero-terminated bytes32 string to the console.
     function log(address p0, address p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -724,6 +755,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, and an address to the console.
     function log(address p0, bool p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -749,6 +781,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, and a boolean to the console.
     function log(address p0, bool p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -774,6 +807,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, and an unsigned integer to the console.
     function log(address p0, bool p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -799,6 +833,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, and a zero-terminated bytes32 string to the console.
     function log(address p0, bool p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -838,6 +873,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, and an address to the console.
     function log(address p0, uint256 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -863,6 +899,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, and a boolean to the console.
     function log(address p0, uint256 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -888,6 +925,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, and an unsigned integer to the console.
     function log(address p0, uint256 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -913,6 +951,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, and a zero-terminated bytes32 string to the console.
     function log(address p0, uint256 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -952,6 +991,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, and an address to the console.
     function log(address p0, bytes32 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -991,6 +1031,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, and a boolean to the console.
     function log(address p0, bytes32 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1030,6 +1071,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, and an unsigned integer to the console.
     function log(address p0, bytes32 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1069,6 +1111,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, and a zero-terminated bytes32 string to the console.
     function log(address p0, bytes32 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1115,6 +1158,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, and an address to the console.
     function log(bool p0, address p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1140,6 +1184,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, and a boolean to the console.
     function log(bool p0, address p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1165,6 +1210,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, and an unsigned integer to the console.
     function log(bool p0, address p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1190,6 +1236,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, and a zero-terminated bytes32 string to the console.
     function log(bool p0, address p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1229,6 +1276,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, and an address to the console.
     function log(bool p0, bool p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1254,6 +1302,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, and a boolean to the console.
     function log(bool p0, bool p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1279,6 +1328,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, and an unsigned integer to the console.
     function log(bool p0, bool p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1304,6 +1354,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, and a zero-terminated bytes32 string to the console.
     function log(bool p0, bool p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1343,6 +1394,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, and an address to the console.
     function log(bool p0, uint256 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1368,6 +1420,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, and a boolean to the console.
     function log(bool p0, uint256 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1393,6 +1446,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, and an unsigned integer to the console.
     function log(bool p0, uint256 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1418,6 +1472,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, and a zero-terminated bytes32 string to the console.
     function log(bool p0, uint256 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1457,6 +1512,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, and an address to the console.
     function log(bool p0, bytes32 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1496,6 +1552,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, and a boolean to the console.
     function log(bool p0, bytes32 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1535,6 +1592,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, and an unsigned integer to the console.
     function log(bool p0, bytes32 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1574,6 +1632,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, and a zero-terminated bytes32 string to the console.
     function log(bool p0, bytes32 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1620,6 +1679,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, and an address to the console.
     function log(uint256 p0, address p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1645,6 +1705,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, and a boolean to the console.
     function log(uint256 p0, address p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1670,6 +1731,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, and an unsigned integer to the console.
     function log(uint256 p0, address p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1695,6 +1757,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, address p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1734,6 +1797,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, and an address to the console.
     function log(uint256 p0, bool p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1759,6 +1823,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, and a boolean to the console.
     function log(uint256 p0, bool p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1784,6 +1849,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, and an unsigned integer to the console.
     function log(uint256 p0, bool p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1809,6 +1875,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, bool p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1848,6 +1915,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, and an address to the console.
     function log(uint256 p0, uint256 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1873,6 +1941,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, and a boolean to the console.
     function log(uint256 p0, uint256 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1898,6 +1967,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, and an unsigned integer to the console.
     function log(uint256 p0, uint256 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1923,6 +1993,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, uint256 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -1962,6 +2033,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, and an address to the console.
     function log(uint256 p0, bytes32 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2001,6 +2073,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, and a boolean to the console.
     function log(uint256 p0, bytes32 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2040,6 +2113,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, and an unsigned integer to the console.
     function log(uint256 p0, bytes32 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2079,6 +2153,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, and a zero-terminated bytes32 string to the
+    /// console.
     function log(uint256 p0, bytes32 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2125,6 +2201,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, and an address to the console.
     function log(bytes32 p0, address p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2164,6 +2241,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, and a boolean to the console.
     function log(bytes32 p0, address p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2203,6 +2281,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, and an unsigned integer to the console.
     function log(bytes32 p0, address p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2242,6 +2321,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, and a zero-terminated bytes32 string to the console.
     function log(bytes32 p0, address p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2288,6 +2368,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, and an address to the console.
     function log(bytes32 p0, bool p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2327,6 +2408,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, and a boolean to the console.
     function log(bytes32 p0, bool p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2366,6 +2448,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, and an unsigned integer to the console.
     function log(bytes32 p0, bool p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2405,6 +2488,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, and a zero-terminated bytes32 string to the console.
     function log(bytes32 p0, bool p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2451,6 +2535,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, and an address to the console.
     function log(bytes32 p0, uint256 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2490,6 +2575,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, and a boolean to the console.
     function log(bytes32 p0, uint256 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2529,6 +2615,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, and an unsigned integer to the console.
     function log(bytes32 p0, uint256 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2568,6 +2655,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, and a zero-terminated bytes32 string to the
+    /// console.
     function log(bytes32 p0, uint256 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2614,6 +2703,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an address to the console.
     function log(bytes32 p0, bytes32 p1, address p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2660,6 +2750,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a boolean to the console.
     function log(bytes32 p0, bytes32 p1, bool p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2706,6 +2797,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an unsigned integer to the
+    /// console.
     function log(bytes32 p0, bytes32 p1, uint256 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2752,6 +2845,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a zero-terminated bytes32
+    /// string to the console.
     function log(bytes32 p0, bytes32 p1, bytes32 p2) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2805,6 +2900,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an address, and an address to the console.
     function log(address p0, address p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2834,6 +2930,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an address, and a boolean to the console.
     function log(address p0, address p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2863,6 +2960,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an address, and an unsigned integer to the console.
     function log(address p0, address p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2892,6 +2990,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an address, and a zero-terminated bytes32 string to the console.
     function log(address p0, address p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2935,6 +3034,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a boolean, and an address to the console.
     function log(address p0, address p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2964,6 +3064,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a boolean, and a boolean to the console.
     function log(address p0, address p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -2993,6 +3094,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a boolean, and an unsigned integer to the console.
     function log(address p0, address p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3022,6 +3124,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a boolean, and a zero-terminated bytes32 string to the console.
     function log(address p0, address p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3065,6 +3168,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an unsigned integer, and an address to the console.
     function log(address p0, address p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3094,6 +3198,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an unsigned integer, and a boolean to the console.
     function log(address p0, address p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3123,6 +3228,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an unsigned integer, and an unsigned integer to the console.
     function log(address p0, address p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3152,6 +3258,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, an unsigned integer, and a zero-terminated bytes32 string to the console.
     function log(address p0, address p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3195,6 +3302,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a zero-terminated bytes32 string, and an address to the console.
     function log(address p0, address p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3238,6 +3346,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a zero-terminated bytes32 string, and a boolean to the console.
     function log(address p0, address p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3281,6 +3390,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a zero-terminated bytes32 string, and an unsigned integer to the console.
     function log(address p0, address p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3324,6 +3434,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an address, a zero-terminated bytes32 string, and a zero-terminated bytes32 string to
+    /// the console.
     function log(address p0, address p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3374,6 +3486,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an address, and an address to the console.
     function log(address p0, bool p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3403,6 +3516,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an address, and a boolean to the console.
     function log(address p0, bool p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3432,6 +3546,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an address, and an unsigned integer to the console.
     function log(address p0, bool p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3461,6 +3576,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an address, and a zero-terminated bytes32 string to the console.
     function log(address p0, bool p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3504,6 +3620,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a boolean, and an address to the console.
     function log(address p0, bool p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3533,6 +3650,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a boolean, and a boolean to the console.
     function log(address p0, bool p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3562,6 +3680,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a boolean, and an unsigned integer to the console.
     function log(address p0, bool p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3591,6 +3710,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a boolean, and a zero-terminated bytes32 string to the console.
     function log(address p0, bool p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3634,6 +3754,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an unsigned integer, and an address to the console.
     function log(address p0, bool p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3663,6 +3784,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an unsigned integer, and a boolean to the console.
     function log(address p0, bool p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3692,6 +3814,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an unsigned integer, and an unsigned integer to the console.
     function log(address p0, bool p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3721,6 +3844,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, an unsigned integer, and a zero-terminated bytes32 string to the console.
     function log(address p0, bool p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3764,6 +3888,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a zero-terminated bytes32 string, and an address to the console.
     function log(address p0, bool p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3807,6 +3932,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a zero-terminated bytes32 string, and a boolean to the console.
     function log(address p0, bool p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3850,6 +3976,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a zero-terminated bytes32 string, and an unsigned integer to the console.
     function log(address p0, bool p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3893,6 +4020,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a boolean, a zero-terminated bytes32 string, and a zero-terminated bytes32 string to
+    /// the console.
     function log(address p0, bool p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3943,6 +4072,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an address, and an address to the console.
     function log(address p0, uint256 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -3972,6 +4102,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an address, and a boolean to the console.
     function log(address p0, uint256 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4001,6 +4132,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an address, and an unsigned integer to the console.
     function log(address p0, uint256 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4030,6 +4162,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an address, and a zero-terminated bytes32 string to the console.
     function log(address p0, uint256 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4073,6 +4206,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a boolean, and an address to the console.
     function log(address p0, uint256 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4102,6 +4236,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a boolean, and a boolean to the console.
     function log(address p0, uint256 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4131,6 +4266,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a boolean, and an unsigned integer to the console.
     function log(address p0, uint256 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4160,6 +4296,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a boolean, and a zero-terminated bytes32 string to the console.
     function log(address p0, uint256 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4203,6 +4340,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an unsigned integer, and an address to the console.
     function log(address p0, uint256 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4232,6 +4370,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an unsigned integer, and a boolean to the console.
     function log(address p0, uint256 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4261,6 +4400,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an unsigned integer, and an unsigned integer to the console.
     function log(address p0, uint256 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4290,6 +4430,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, an unsigned integer, and a zero-terminated bytes32 string to the
+    /// console.
     function log(address p0, uint256 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4333,6 +4475,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a zero-terminated bytes32 string, and an address to the console.
     function log(address p0, uint256 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4376,6 +4519,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a zero-terminated bytes32 string, and a boolean to the console.
     function log(address p0, uint256 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4419,6 +4563,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a zero-terminated bytes32 string, and an unsigned integer to the
+    /// console.
     function log(address p0, uint256 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4462,6 +4608,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, an unsigned integer, a zero-terminated bytes32 string, and a zero-terminated bytes32
+    /// string to the console.
     function log(address p0, uint256 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4512,6 +4660,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an address, and an address to the console.
     function log(address p0, bytes32 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4555,6 +4704,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an address, and a boolean to the console.
     function log(address p0, bytes32 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4598,6 +4748,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an address, and an unsigned integer to the console.
     function log(address p0, bytes32 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4641,6 +4792,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an address, and a zero-terminated bytes32 string to
+    /// the console.
     function log(address p0, bytes32 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4691,6 +4844,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a boolean, and an address to the console.
     function log(address p0, bytes32 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4734,6 +4888,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a boolean, and a boolean to the console.
     function log(address p0, bytes32 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4777,6 +4932,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a boolean, and an unsigned integer to the console.
     function log(address p0, bytes32 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4820,6 +4976,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a boolean, and a zero-terminated bytes32 string to
+    /// the console.
     function log(address p0, bytes32 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4870,6 +5028,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an unsigned integer, and an address to the console.
     function log(address p0, bytes32 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4913,6 +5072,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an unsigned integer, and a boolean to the console.
     function log(address p0, bytes32 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4956,6 +5116,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an unsigned integer, and an unsigned integer to the
+    /// console.
     function log(address p0, bytes32 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -4999,6 +5161,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, an unsigned integer, and a zero-terminated bytes32
+    /// string to the console.
     function log(address p0, bytes32 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5049,6 +5213,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an address to
+    /// the console.
     function log(address p0, bytes32 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5099,6 +5265,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a boolean to
+    /// the console.
     function log(address p0, bytes32 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5149,6 +5317,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an unsigned
+    /// integer to the console.
     function log(address p0, bytes32 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5199,6 +5369,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an address, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a zero-
+    /// terminated bytes32 string to the console.
     function log(address p0, bytes32 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5256,6 +5428,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an address, and an address to the console.
     function log(bool p0, address p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5285,6 +5458,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an address, and a boolean to the console.
     function log(bool p0, address p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5314,6 +5488,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an address, and an unsigned integer to the console.
     function log(bool p0, address p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5343,6 +5518,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an address, and a zero-terminated bytes32 string to the console.
     function log(bool p0, address p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5386,6 +5562,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a boolean, and an address to the console.
     function log(bool p0, address p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5415,6 +5592,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a boolean, and a boolean to the console.
     function log(bool p0, address p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5444,6 +5622,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a boolean, and an unsigned integer to the console.
     function log(bool p0, address p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5473,6 +5652,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a boolean, and a zero-terminated bytes32 string to the console.
     function log(bool p0, address p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5516,6 +5696,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an unsigned integer, and an address to the console.
     function log(bool p0, address p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5545,6 +5726,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an unsigned integer, and a boolean to the console.
     function log(bool p0, address p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5574,6 +5756,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an unsigned integer, and an unsigned integer to the console.
     function log(bool p0, address p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5603,6 +5786,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, an unsigned integer, and a zero-terminated bytes32 string to the console.
     function log(bool p0, address p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5646,6 +5830,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a zero-terminated bytes32 string, and an address to the console.
     function log(bool p0, address p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5689,6 +5874,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a zero-terminated bytes32 string, and a boolean to the console.
     function log(bool p0, address p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5732,6 +5918,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a zero-terminated bytes32 string, and an unsigned integer to the console.
     function log(bool p0, address p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5775,6 +5962,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an address, a zero-terminated bytes32 string, and a zero-terminated bytes32 string to
+    /// the console.
     function log(bool p0, address p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5825,6 +6014,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an address, and an address to the console.
     function log(bool p0, bool p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5854,6 +6044,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an address, and a boolean to the console.
     function log(bool p0, bool p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5883,6 +6074,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an address, and an unsigned integer to the console.
     function log(bool p0, bool p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5912,6 +6104,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an address, and a zero-terminated bytes32 string to the console.
     function log(bool p0, bool p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5955,6 +6148,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a boolean, and an address to the console.
     function log(bool p0, bool p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -5984,6 +6178,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a boolean, and a boolean to the console.
     function log(bool p0, bool p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6013,6 +6208,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a boolean, and an unsigned integer to the console.
     function log(bool p0, bool p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6042,6 +6238,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a boolean, and a zero-terminated bytes32 string to the console.
     function log(bool p0, bool p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6085,6 +6282,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an unsigned integer, and an address to the console.
     function log(bool p0, bool p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6114,6 +6312,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an unsigned integer, and a boolean to the console.
     function log(bool p0, bool p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6143,6 +6342,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an unsigned integer, and an unsigned integer to the console.
     function log(bool p0, bool p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6172,6 +6372,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, an unsigned integer, and a zero-terminated bytes32 string to the console.
     function log(bool p0, bool p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6215,6 +6416,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a zero-terminated bytes32 string, and an address to the console.
     function log(bool p0, bool p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6258,6 +6460,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a zero-terminated bytes32 string, and a boolean to the console.
     function log(bool p0, bool p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6301,6 +6504,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a zero-terminated bytes32 string, and an unsigned integer to the console.
     function log(bool p0, bool p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6344,6 +6548,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a boolean, a zero-terminated bytes32 string, and a zero-terminated bytes32 string to the
+    /// console.
     function log(bool p0, bool p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6394,6 +6600,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an address, and an address to the console.
     function log(bool p0, uint256 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6423,6 +6630,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an address, and a boolean to the console.
     function log(bool p0, uint256 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6452,6 +6660,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an address, and an unsigned integer to the console.
     function log(bool p0, uint256 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6481,6 +6690,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an address, and a zero-terminated bytes32 string to the console.
     function log(bool p0, uint256 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6524,6 +6734,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a boolean, and an address to the console.
     function log(bool p0, uint256 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6553,6 +6764,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a boolean, and a boolean to the console.
     function log(bool p0, uint256 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6582,6 +6794,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a boolean, and an unsigned integer to the console.
     function log(bool p0, uint256 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6611,6 +6824,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a boolean, and a zero-terminated bytes32 string to the console.
     function log(bool p0, uint256 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6654,6 +6868,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an unsigned integer, and an address to the console.
     function log(bool p0, uint256 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6683,6 +6898,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an unsigned integer, and a boolean to the console.
     function log(bool p0, uint256 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6712,6 +6928,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an unsigned integer, and an unsigned integer to the console.
     function log(bool p0, uint256 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6741,6 +6958,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, an unsigned integer, and a zero-terminated bytes32 string to the
+    /// console.
     function log(bool p0, uint256 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6784,6 +7003,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a zero-terminated bytes32 string, and an address to the console.
     function log(bool p0, uint256 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6827,6 +7047,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a zero-terminated bytes32 string, and a boolean to the console.
     function log(bool p0, uint256 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6870,6 +7091,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a zero-terminated bytes32 string, and an unsigned integer to the
+    /// console.
     function log(bool p0, uint256 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6913,6 +7136,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, an unsigned integer, a zero-terminated bytes32 string, and a zero-terminated bytes32
+    /// string to the console.
     function log(bool p0, uint256 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -6963,6 +7188,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an address, and an address to the console.
     function log(bool p0, bytes32 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7006,6 +7232,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an address, and a boolean to the console.
     function log(bool p0, bytes32 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7049,6 +7276,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an address, and an unsigned integer to the console.
     function log(bool p0, bytes32 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7092,6 +7320,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an address, and a zero-terminated bytes32 string to
+    /// the console.
     function log(bool p0, bytes32 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7142,6 +7372,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a boolean, and an address to the console.
     function log(bool p0, bytes32 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7185,6 +7416,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a boolean, and a boolean to the console.
     function log(bool p0, bytes32 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7228,6 +7460,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a boolean, and an unsigned integer to the console.
     function log(bool p0, bytes32 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7271,6 +7504,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a boolean, and a zero-terminated bytes32 string to the
+    /// console.
     function log(bool p0, bytes32 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7321,6 +7556,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an unsigned integer, and an address to the console.
     function log(bool p0, bytes32 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7364,6 +7600,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an unsigned integer, and a boolean to the console.
     function log(bool p0, bytes32 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7407,6 +7644,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an unsigned integer, and an unsigned integer to the
+    /// console.
     function log(bool p0, bytes32 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7450,6 +7689,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, an unsigned integer, and a zero-terminated bytes32
+    /// string to the console.
     function log(bool p0, bytes32 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7500,6 +7741,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an address to
+    /// the console.
     function log(bool p0, bytes32 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7550,6 +7793,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a boolean to the
+    /// console.
     function log(bool p0, bytes32 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7600,6 +7845,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an unsigned
+    /// integer to the console.
     function log(bool p0, bytes32 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7650,6 +7897,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a boolean, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a zero-
+    /// terminated bytes32 string to the console.
     function log(bool p0, bytes32 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7707,6 +7956,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an address, and an address to the console.
     function log(uint256 p0, address p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7736,6 +7986,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an address, and a boolean to the console.
     function log(uint256 p0, address p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7765,6 +8016,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an address, and an unsigned integer to the console.
     function log(uint256 p0, address p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7794,6 +8046,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an address, and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, address p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7837,6 +8090,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a boolean, and an address to the console.
     function log(uint256 p0, address p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7866,6 +8120,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a boolean, and a boolean to the console.
     function log(uint256 p0, address p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7895,6 +8150,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a boolean, and an unsigned integer to the console.
     function log(uint256 p0, address p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7924,6 +8180,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a boolean, and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, address p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7967,6 +8224,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an unsigned integer, and an address to the console.
     function log(uint256 p0, address p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -7996,6 +8254,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an unsigned integer, and a boolean to the console.
     function log(uint256 p0, address p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8025,6 +8284,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an unsigned integer, and an unsigned integer to the console.
     function log(uint256 p0, address p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8054,6 +8314,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, an unsigned integer, and a zero-terminated bytes32 string to the
+    /// console.
     function log(uint256 p0, address p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8097,6 +8359,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a zero-terminated bytes32 string, and an address to the console.
     function log(uint256 p0, address p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8140,6 +8403,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a zero-terminated bytes32 string, and a boolean to the console.
     function log(uint256 p0, address p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8183,6 +8447,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a zero-terminated bytes32 string, and an unsigned integer to the
+    /// console.
     function log(uint256 p0, address p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8226,6 +8492,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an address, a zero-terminated bytes32 string, and a zero-terminated bytes32
+    /// string to the console.
     function log(uint256 p0, address p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8276,6 +8544,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an address, and an address to the console.
     function log(uint256 p0, bool p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8305,6 +8574,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an address, and a boolean to the console.
     function log(uint256 p0, bool p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8334,6 +8604,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an address, and an unsigned integer to the console.
     function log(uint256 p0, bool p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8363,6 +8634,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an address, and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, bool p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8406,6 +8678,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a boolean, and an address to the console.
     function log(uint256 p0, bool p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8435,6 +8708,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a boolean, and a boolean to the console.
     function log(uint256 p0, bool p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8464,6 +8738,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a boolean, and an unsigned integer to the console.
     function log(uint256 p0, bool p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8493,6 +8768,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a boolean, and a zero-terminated bytes32 string to the console.
     function log(uint256 p0, bool p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8536,6 +8812,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an unsigned integer, and an address to the console.
     function log(uint256 p0, bool p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8565,6 +8842,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an unsigned integer, and a boolean to the console.
     function log(uint256 p0, bool p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8594,6 +8872,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an unsigned integer, and an unsigned integer to the console.
     function log(uint256 p0, bool p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8623,6 +8902,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, an unsigned integer, and a zero-terminated bytes32 string to the
+    /// console.
     function log(uint256 p0, bool p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8666,6 +8947,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a zero-terminated bytes32 string, and an address to the console.
     function log(uint256 p0, bool p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8709,6 +8991,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a zero-terminated bytes32 string, and a boolean to the console.
     function log(uint256 p0, bool p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8752,6 +9035,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a zero-terminated bytes32 string, and an unsigned integer to the
+    /// console.
     function log(uint256 p0, bool p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8795,6 +9080,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a boolean, a zero-terminated bytes32 string, and a zero-terminated bytes32
+    /// string to the console.
     function log(uint256 p0, bool p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8845,6 +9132,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an address, and an address to the console.
     function log(uint256 p0, uint256 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8874,6 +9162,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an address, and a boolean to the console.
     function log(uint256 p0, uint256 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8903,6 +9192,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an address, and an unsigned integer to the console.
     function log(uint256 p0, uint256 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8932,6 +9222,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an address, and a zero-terminated bytes32 string to the
+    /// console.
     function log(uint256 p0, uint256 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -8975,6 +9267,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a boolean, and an address to the console.
     function log(uint256 p0, uint256 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9004,6 +9297,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a boolean, and a boolean to the console.
     function log(uint256 p0, uint256 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9033,6 +9327,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a boolean, and an unsigned integer to the console.
     function log(uint256 p0, uint256 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9062,6 +9357,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a boolean, and a zero-terminated bytes32 string to the
+    /// console.
     function log(uint256 p0, uint256 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9105,6 +9402,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an unsigned integer, and an address to the console.
     function log(uint256 p0, uint256 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9134,6 +9432,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an unsigned integer, and a boolean to the console.
     function log(uint256 p0, uint256 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9163,6 +9462,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an unsigned integer, and an unsigned integer to the
+    /// console.
     function log(uint256 p0, uint256 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9192,6 +9493,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, an unsigned integer, and a zero-terminated bytes32 string
+    /// to the console.
     function log(uint256 p0, uint256 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9235,6 +9538,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a zero-terminated bytes32 string, and an address to the
+    /// console.
     function log(uint256 p0, uint256 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9278,6 +9583,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a zero-terminated bytes32 string, and a boolean to the
+    /// console.
     function log(uint256 p0, uint256 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9321,6 +9628,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a zero-terminated bytes32 string, and an unsigned integer
+    /// to the console.
     function log(uint256 p0, uint256 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9364,6 +9673,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, an unsigned integer, a zero-terminated bytes32 string, and a zero-terminated
+    /// bytes32 string to the console.
     function log(uint256 p0, uint256 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9414,6 +9725,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an address, and an address to the console.
     function log(uint256 p0, bytes32 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9457,6 +9769,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an address, and a boolean to the console.
     function log(uint256 p0, bytes32 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9500,6 +9813,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an address, and an unsigned integer to the
+    /// console.
     function log(uint256 p0, bytes32 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9543,6 +9858,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an address, and a zero-terminated bytes32
+    /// string to the console.
     function log(uint256 p0, bytes32 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9593,6 +9910,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a boolean, and an address to the console.
     function log(uint256 p0, bytes32 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9636,6 +9954,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a boolean, and a boolean to the console.
     function log(uint256 p0, bytes32 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9679,6 +9998,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a boolean, and an unsigned integer to the
+    /// console.
     function log(uint256 p0, bytes32 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9722,6 +10043,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a boolean, and a zero-terminated bytes32
+    /// string to the console.
     function log(uint256 p0, bytes32 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9772,6 +10095,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an unsigned integer, and an address to the
+    /// console.
     function log(uint256 p0, bytes32 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9815,6 +10140,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an unsigned integer, and a boolean to the
+    /// console.
     function log(uint256 p0, bytes32 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9858,6 +10185,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an unsigned integer, and an unsigned integer
+    /// to the console.
     function log(uint256 p0, bytes32 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9901,6 +10230,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, an unsigned integer, and a zero-terminated
+    /// bytes32 string to the console.
     function log(uint256 p0, bytes32 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -9951,6 +10282,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an
+    /// address to the console.
     function log(uint256 p0, bytes32 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10001,6 +10334,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a
+    /// boolean to the console.
     function log(uint256 p0, bytes32 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10051,6 +10386,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and an
+    /// unsigned integer to the console.
     function log(uint256 p0, bytes32 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10101,6 +10438,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs an unsigned integer, a zero-terminated bytes32 string, a zero-terminated bytes32 string, and a
+    /// zero-terminated bytes32 string to the console.
     function log(uint256 p0, bytes32 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10158,6 +10497,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an address, and an address to the console.
     function log(bytes32 p0, address p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10201,6 +10541,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an address, and a boolean to the console.
     function log(bytes32 p0, address p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10244,6 +10585,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an address, and an unsigned integer to the console.
     function log(bytes32 p0, address p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10287,6 +10629,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an address, and a zero-terminated bytes32 string to
+    /// the console.
     function log(bytes32 p0, address p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10337,6 +10681,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a boolean, and an address to the console.
     function log(bytes32 p0, address p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10380,6 +10725,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a boolean, and a boolean to the console.
     function log(bytes32 p0, address p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10423,6 +10769,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a boolean, and an unsigned integer to the console.
     function log(bytes32 p0, address p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10466,6 +10813,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a boolean, and a zero-terminated bytes32 string to
+    /// the console.
     function log(bytes32 p0, address p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10516,6 +10865,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an unsigned integer, and an address to the console.
     function log(bytes32 p0, address p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10559,6 +10909,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an unsigned integer, and a boolean to the console.
     function log(bytes32 p0, address p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10602,6 +10953,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an unsigned integer, and an unsigned integer to the
+    /// console.
     function log(bytes32 p0, address p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10645,6 +10998,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, an unsigned integer, and a zero-terminated bytes32
+    /// string to the console.
     function log(bytes32 p0, address p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10695,6 +11050,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a zero-terminated bytes32 string, and an address to
+    /// the console.
     function log(bytes32 p0, address p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10745,6 +11102,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a zero-terminated bytes32 string, and a boolean to
+    /// the console.
     function log(bytes32 p0, address p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10795,6 +11154,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a zero-terminated bytes32 string, and an unsigned
+    /// integer to the console.
     function log(bytes32 p0, address p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10845,6 +11206,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an address, a zero-terminated bytes32 string, and a zero-
+    /// terminated bytes32 string to the console.
     function log(bytes32 p0, address p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10902,6 +11265,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an address, and an address to the console.
     function log(bytes32 p0, bool p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10945,6 +11309,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an address, and a boolean to the console.
     function log(bytes32 p0, bool p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -10988,6 +11353,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an address, and an unsigned integer to the console.
     function log(bytes32 p0, bool p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11031,6 +11397,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an address, and a zero-terminated bytes32 string to
+    /// the console.
     function log(bytes32 p0, bool p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11081,6 +11449,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a boolean, and an address to the console.
     function log(bytes32 p0, bool p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11124,6 +11493,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a boolean, and a boolean to the console.
     function log(bytes32 p0, bool p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11167,6 +11537,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a boolean, and an unsigned integer to the console.
     function log(bytes32 p0, bool p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11210,6 +11581,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a boolean, and a zero-terminated bytes32 string to the
+    /// console.
     function log(bytes32 p0, bool p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11260,6 +11633,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an unsigned integer, and an address to the console.
     function log(bytes32 p0, bool p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11303,6 +11677,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an unsigned integer, and a boolean to the console.
     function log(bytes32 p0, bool p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11346,6 +11721,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an unsigned integer, and an unsigned integer to the
+    /// console.
     function log(bytes32 p0, bool p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11389,6 +11766,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, an unsigned integer, and a zero-terminated bytes32
+    /// string to the console.
     function log(bytes32 p0, bool p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11439,6 +11818,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a zero-terminated bytes32 string, and an address to
+    /// the console.
     function log(bytes32 p0, bool p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11489,6 +11870,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a zero-terminated bytes32 string, and a boolean to the
+    /// console.
     function log(bytes32 p0, bool p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11539,6 +11922,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a zero-terminated bytes32 string, and an unsigned
+    /// integer to the console.
     function log(bytes32 p0, bool p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11589,6 +11974,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a boolean, a zero-terminated bytes32 string, and a zero-
+    /// terminated bytes32 string to the console.
     function log(bytes32 p0, bool p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11646,6 +12033,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an address, and an address to the console.
     function log(bytes32 p0, uint256 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11689,6 +12077,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an address, and a boolean to the console.
     function log(bytes32 p0, uint256 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11732,6 +12121,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an address, and an unsigned integer to the
+    /// console.
     function log(bytes32 p0, uint256 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11775,6 +12166,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an address, and a zero-terminated bytes32
+    /// string to the console.
     function log(bytes32 p0, uint256 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11825,6 +12218,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a boolean, and an address to the console.
     function log(bytes32 p0, uint256 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11868,6 +12262,7 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a boolean, and a boolean to the console.
     function log(bytes32 p0, uint256 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11911,6 +12306,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a boolean, and an unsigned integer to the
+    /// console.
     function log(bytes32 p0, uint256 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -11954,6 +12351,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a boolean, and a zero-terminated bytes32
+    /// string to the console.
     function log(bytes32 p0, uint256 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12004,6 +12403,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an unsigned integer, and an address to the
+    /// console.
     function log(bytes32 p0, uint256 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12047,6 +12448,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an unsigned integer, and a boolean to the
+    /// console.
     function log(bytes32 p0, uint256 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12090,6 +12493,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an unsigned integer, and an unsigned integer
+    /// to the console.
     function log(bytes32 p0, uint256 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12133,6 +12538,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, an unsigned integer, and a zero-terminated
+    /// bytes32 string to the console.
     function log(bytes32 p0, uint256 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12183,6 +12590,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a zero-terminated bytes32 string, and an
+    /// address to the console.
     function log(bytes32 p0, uint256 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12233,6 +12642,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a zero-terminated bytes32 string, and a
+    /// boolean to the console.
     function log(bytes32 p0, uint256 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12283,6 +12694,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a zero-terminated bytes32 string, and an
+    /// unsigned integer to the console.
     function log(bytes32 p0, uint256 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12333,6 +12746,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, an unsigned integer, a zero-terminated bytes32 string, and a
+    /// zero-terminated bytes32 string to the console.
     function log(bytes32 p0, uint256 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12390,6 +12805,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an address, and an address to
+    /// the console.
     function log(bytes32 p0, bytes32 p1, address p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12440,6 +12857,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an address, and a boolean to
+    /// the console.
     function log(bytes32 p0, bytes32 p1, address p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12490,6 +12909,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an address, and an unsigned
+    /// integer to the console.
     function log(bytes32 p0, bytes32 p1, address p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12540,6 +12961,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an address, and a zero-
+    /// terminated bytes32 string to the console.
     function log(bytes32 p0, bytes32 p1, address p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12597,6 +13020,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a boolean, and an address to
+    /// the console.
     function log(bytes32 p0, bytes32 p1, bool p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12647,6 +13072,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a boolean, and a boolean to the
+    /// console.
     function log(bytes32 p0, bytes32 p1, bool p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12697,6 +13124,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a boolean, and an unsigned
+    /// integer to the console.
     function log(bytes32 p0, bytes32 p1, bool p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12747,6 +13176,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a boolean, and a zero-
+    /// terminated bytes32 string to the console.
     function log(bytes32 p0, bytes32 p1, bool p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12804,6 +13235,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an unsigned integer, and an
+    /// address to the console.
     function log(bytes32 p0, bytes32 p1, uint256 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12854,6 +13287,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an unsigned integer, and a
+    /// boolean to the console.
     function log(bytes32 p0, bytes32 p1, uint256 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12904,6 +13339,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an unsigned integer, and an
+    /// unsigned integer to the console.
     function log(bytes32 p0, bytes32 p1, uint256 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -12954,6 +13391,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, an unsigned integer, and a
+    /// zero-terminated bytes32 string to the console.
     function log(bytes32 p0, bytes32 p1, uint256 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -13011,6 +13450,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a zero-terminated bytes32
+    /// string, and an address to the console.
     function log(bytes32 p0, bytes32 p1, bytes32 p2, address p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -13068,6 +13509,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a zero-terminated bytes32
+    /// string, and a boolean to the console.
     function log(bytes32 p0, bytes32 p1, bytes32 p2, bool p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -13125,6 +13568,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a zero-terminated bytes32
+    /// string, and an unsigned integer to the console.
     function log(bytes32 p0, bytes32 p1, bytes32 p2, uint256 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
@@ -13182,6 +13627,8 @@ library safeconsole {
         }
     }
 
+    /// @notice Logs a zero-terminated bytes32 string, a zero-terminated bytes32 string, a zero-terminated bytes32
+    /// string, and a zero-terminated bytes32 string to the console.
     function log(bytes32 p0, bytes32 p1, bytes32 p2, bytes32 p3) internal pure {
         bytes32 m0;
         bytes32 m1;
